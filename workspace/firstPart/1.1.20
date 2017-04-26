@@ -1,0 +1,14 @@
+public class Test {
+
+	public static void main(String[] args) {
+		int n = 3;
+		double m = Math.log(mystery(n));
+		System.out.println(m);
+    }
+	
+	public static double mystery(int n){
+		if(n==1) return 1;
+		return n*mystery(n-1);
+	}
+
+}
