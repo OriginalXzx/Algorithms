@@ -1,0 +1,23 @@
+/**
+ * 欧几里得算法求最大公约数
+ * @author xzx
+ *
+ */
+
+
+public class Test {
+
+	public static void main(String[] args) {
+		System.out.println(Euclid(105,24));
+    }
+	
+	public static int Euclid(int a,int b){
+		if(b == 0){
+			return a;
+		}
+		System.out.println("调用递归时参数为:"+a+"  "+b);
+		int r = a%b;
+		return Euclid(b,r);//这一步非常巧妙！！
+	}
+
+}
