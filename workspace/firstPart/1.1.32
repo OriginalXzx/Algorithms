@@ -1,0 +1,59 @@
+import edu.princeton.cs.algs4.StdDraw;
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdStats;
+
+/**
+ *Ö±·½Í¼
+ * @author xzx
+ *
+ */
+public class Test {
+	public static void histogram(double[] values, int n, double l, double r)
+    {
+        int[] counts = new int[n];
+        
+        for (int i = 0; i < values.length; i++)
+        {
+            int k = getInterval(values[i], n, l, r);
+            if (k >= 0)
+                counts[k]++;
+        }
+        
+        int maxCount = StdStats.max(counts);
+        
+        StdDraw.setCanvasSize(500, 250);
+        StdDraw.setXscale(l, r);
+        StdDraw.setYscale(0, maxCount);
+        StdDraw.setPenColor(Color.green);
+        
+        double w = (r - l) / n;
+        
+        for (int i = 0; i < n; i++)
+        {
+            double x = l + (i + 0.5) * w,
+                   y = counts[i] / 2.0,
+                   rw = 0.5 * w,
+                   rh = counts[i] / 2.0;
+            StdDraw.filledRectangle(x, y, rw, rh);
+        }
+    }
+    
+    private static int getInterval(double v, int n, double l, double r)
+    {
+        if (v < l || v >= r)
+            return -1;
+        else
+            return (int)(n * (v - l) / (r - l));
+    }
+    
+    public static void main(String[] args)
+    {
+        int n = StdIn.readInt();
+        double l = StdIn.readDouble();
+        double r = StdIn.readDouble();
+        
+        double[] values = {10.5,2.6,5.9,6.8,5.3,11.5,8.9,7.2};
+        
+        histogram(values, n, l, r);
+    }
+}

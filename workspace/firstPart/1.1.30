@@ -1,0 +1,33 @@
+**
+ *µÈÖµ¼ü
+ * @author xzx
+ *
+ */
+public class Test {
+	
+	 public static void main(String[] args){
+		boolean[][] a = new boolean[10][10];
+		for (int i = 1; i < a.length; i++) {
+			for (int j = 1; j < a.length; j++) {
+				if(gcd(i,j)==1){
+					a[i][j] = true;
+				}
+			}
+		}
+		for (int i = 0; i < a.length; i++) {
+			for (int j = 0; j < a[0].length; j++) {
+				System.out.print(a[i][j]+" ");
+			}
+			System.out.println();
+		}
+		
+	 }
+	 
+	 public static int gcd(int p,int q){
+		 if(q==0){
+			 return p;
+		 }
+		 int r = p%q;
+		 return gcd(q,r);
+	 }
+}

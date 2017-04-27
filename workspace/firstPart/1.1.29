@@ -1,0 +1,29 @@
+import edu.princeton.cs.algs4.StdIn;
+
+/**
+ *等值键
+ * @author xzx
+ *
+ */
+public class Test {
+	
+	 public static void main(String[] args){
+		 int[] a = {5,3,5,6,7,8};
+		 rank(StdIn.readInt(),a);
+	 }
+	 
+	 public static void rank(int key,int[] a){
+		 int count1 = 0;
+		 int count2 = 0;
+		 for (int i = 0; i < a.length; i++) {
+			 if(a[i]<key){
+				 count1++;
+			 }else if(key==a[i]){
+				 count2++;
+			 }
+		}
+		 System.out.println("小于key的数量为："+count1);
+		 System.out.println("等于key的数量为："+count2);
+	 }
+}
+
